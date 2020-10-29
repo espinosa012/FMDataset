@@ -1,0 +1,88 @@
+{% extends "base_template.html" %}
+
+{% block title %}FMDataset - Squad player{% endblock %}
+
+{%block content%}
+
+<div class="row">
+    <div class="column">
+        <div class="container" style="padding-left: 10px">
+          <div class="ui cards">
+            <div class="card">
+              <div class="content">
+                <div class="header">Sort players by:</div>
+
+
+
+                <form action="{{url_for('search_result', search_form=search_form)}}", method=POST>
+                  <div class="description">
+                    <input type="text" name="sort_by" placeholder="Background, Physical...">
+                  </div>
+                  <br> 
+                  <input type="submit" name="submit" value='sort'>
+                </form>
+                
+
+
+              </div>
+            </div>
+          </div>
+
+          <table class="ui single line table">
+            <h4 class="ui horizontal divider header">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>WeeklyWage</th>
+                <th>Value</th>
+                <th>Club</th>
+                <th>Position</th>
+                <th>Technical</th>
+                <th>Mental</th>
+                <th>Physical</th>
+                <th>Primary</th>
+                <th>Background</th>
+                <!-- change format -->
+                {%for at in search_attrs%}
+                <th>{{at}}</th>
+                {%endfor%}
+              </tr>
+            </thead>
+            <tbody>
+              {%for player in players%}
+              <tr>
+                <td><img src="faces/noface.jpg" height="40px"></td>
+                <td><a href="{{url_for('my_player', uid=player.UID)}}">{{player.Name}}</a></td>
+                <td>{{player.Age}}</td>
+                <td>{{player.WeeklyWage}}</td>
+                <td>{{player.Value}}</td>
+                <td>{{player.Club}}</td>
+                <td>{{player.Positions}}</td>
+                <td>{{player.TechnicalRating}}</td>
+                <td>{{player.MentalRating}}</td>
+                <td>{{player.PhysicalRating}}</td>
+                <td>{{player.PrimaryRating}}</td>
+                <td>{{player.BackgroundRating}}</td>
+                {%for at in search_attrs%}
+                <td style="background-color: aquamarine;">{{player[at]}}</td>
+                {%endfor%}
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>            
+          </h4>
+        </div>
+    </div>
+  
+    <!-- más columnas para la misma fila de la tabla -->
+  
+  
+  
+  
+  
+  </div>
+  
+
+{%endblock%}

@@ -1,0 +1,228 @@
+{% extends "base_template.html" %}
+
+{% block title %}FMDataset - Squad player{% endblock %}
+{%block content%}
+<div class="row">
+            
+    <div class="column">
+    <!--    basic info card            -->
+            <div class="ui link cards">
+                  <div class="card">
+                    <div class="image">
+                      <img src="faces/noface.jpg">
+                    </div>
+                    <div class="content">
+                      <div class="header">{{player.reg.Name}}</div>
+                      {{player.reg.Club}}
+                      <div class="meta">
+                        <span>age: {{player.reg.Age}} y.o.</span><br>
+                        <span>value: {{player.reg.Value}} €</span><br>
+                        <span>end of contract: {{player.reg.EndOfContract}}</span>
+                      </div>
+                      <div class="description">
+                        <h5>{{player.positions}}</h5> <br>
+                        <img src="positions/{{player.positions}}.png" height="90" alt="{{player.positions}}">
+                        
+                      </div>
+                    </div>
+                    <div class="extra content">
+                      <span class="right floated">
+                          {{player.reg.UID}}
+                      </span>
+                      <span>
+                        <i class="search icon"></i>
+                        <a href="{{url_for('similar_players', uid=player.reg.UID)}}">similar players</a>
+                      </span><br>
+                      <span>
+                        <i class="like icon"></i>
+                        <a href="{{url_for('add_player_to_preselection', uid=player.reg.UID)}}">add to preselection</a>
+                      </span>
+                    </div>
+                  </div>
+            </div>
+    
+    </div>
+    
+    <div class="column">
+        <div class="ui cards">
+            <div class="card">
+                <div class="content">
+                    {% if 'GK' in player.positions %}
+                    <div class="header">
+                        Goalkeeper attributes
+                    </div>
+                    <div class="meta">
+                        {{player.ratings.GoalkeeperRating}}
+                    </div>
+                    {%else%}
+                    <div class="header">
+                        Technical attributes
+                    </div>
+                    <div class="meta">
+                        {{player.ratings.TechnicalRating}}
+                    </div>
+                    {%endif%}
+                    <div class="description">
+                        {{charts.header_charts['technical'] | safe}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="column">
+        <div class="ui cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="header">
+                            Mental attributes
+                        </div>
+
+                        <div class="meta">
+                            {{player.ratings.MentalRating}}
+                        </div>
+
+                        <div class="description">
+                            {{charts.header_charts['mental'] | safe}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+    <div class="column">
+        <div class="ui cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="header">
+                            Physical attributes
+                        </div>
+
+                        <div class="meta">
+                            {{player.ratings.PhysicalRating}}
+                        </div>
+
+                        <div class="description">
+                            {{charts.header_charts['physical'] | safe}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div class="row">
+
+{%for ch in list(charts.overview_charts.keys())%}
+<div class="column">
+    <div class="ui cards">
+        <div class="card">
+            <div class="content">
+                <div class="header">
+                    {{charts.overview_charts[ch]['title']}}
+                </div>
+                <div class="meta">
+                    <!-- rating -->
+                </div>
+                <div class="description">
+                    {{charts.overview_charts[ch]['chart'] | safe}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endfor%}
+{%endblock%}
+</div>
+
+<div class="row">
+    <div class="column">
+        <div class="ui cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">
+                        Primary attributes
+                    </div>
+
+                    <div class="meta">
+                        {{player.ratings.PrimaryRating}}
+                    </div>
+
+                    <div class="description">
+                        {{charts.overview_charts['primary'] | safe}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="column">
+        <div class="ui cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">
+                        Background attributes
+                    </div>
+
+                    <div class="meta">
+                        {{player.ratings.BackgroundRating}}
+                    </div>
+
+                    <div class="description">
+                        {{charts.overview_charts['background'] | safe}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="column">
+        <div class="ui cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">
+                        Youth development
+                    </div>
+                    <div class="meta">
+                        A player with high levels of Determination, Ambition and Professionalism are more likely to suceed than those with 
+                        lower levels.
+                    </div>
+                    <div class="description">
+                        {{charts.overview_charts['youth_development'] | safe}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="ui cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">
+                        Youth development
+                    </div>
+                    <div class="meta">
+                        A player with high levels of Determination, Ambition and Professionalism are more likely to suceed than those with 
+                        lower levels.
+                    </div>
+                    <div class="description">
+                        {{player.positons_rating}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+

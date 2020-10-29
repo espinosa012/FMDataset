@@ -1,0 +1,447 @@
+{% extends "base_template.html" %}
+
+{% block title %}FMDataset - Squad player{% endblock %}
+{%block content%}
+<form action="{{url_for('search_result', sort_by=None)}}" method="POST">
+<div class="row">
+  <div class="column">
+    <h2>Name</h2>
+    <div class="ui form">
+      <div class="fields">
+        <div class="field">
+          <input type="text" name="Name">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="column">
+      <h2>Game attributes search</h2>
+        <div class="ui form">
+              <h4>Technical attributes</h4>
+                <div class="fields">
+                  
+                  <div class="field">
+                    <label>Corners</label>
+                    <input type="number" name="Corners" min="1" max="20">
+                  </div>
+
+                  <div class="field">
+                    <label>Crossing</label>
+                    <input type="number" name="Crossing" min="1" max="20">
+                  </div>
+
+                  <div class="field">
+                    <label>Dribbling</label>
+                    <input type="number" name="Dribbling" min="1" max="20">
+                  </div>
+
+                  <div class="field">
+                    <label>Finishing</label>
+                    <input type="number" name="Finishing" min="1" max="20">
+                  </div>
+                  
+                  <div class="field">
+                    <label>FirstTouch</label>
+                    <input type="number" name="FirstTouch" min="1" max="20">
+                  </div>
+
+                  <div class="field">
+                    <label>FreeKicks</label>
+                    <input type="number" name="FreeKicks" min="1" max="20">
+                  </div>
+                  
+                  <div class="field">
+                    <label>Heading</label>
+                    <input type="number" name="Heading" min="1" max="20">
+                  </div>
+                  
+                  <div class="field">
+                    <label>LongShots</label>
+                    <input type="number" name="LongShots" min="1" max="20">
+                  </div>
+                  
+                  <div class="field">
+                    <label>LongThrows</label>
+                    <input type="number" name="LongThrows" min="1" max="20">
+                  </div>
+                  
+                  <div class="field">
+                    <label>Marking</label>
+                    <input type="number" name="Marking" min="1" max="20">
+                  </div>
+                  
+                  <div class="field">
+                    <label>Passing</label>
+                    <input type="number" name="Passing" min="1" max="20">
+                  </div>
+                  
+                  <div class="field">
+                    <label>PenaltyTaking</label>
+                    <input type="number" name="PenaltyTaking" min="1" max="20">
+                  </div>
+                  
+                  <div class="field">
+                    <label>Tackling</label>
+                    <input type="number" name="Tackling" min="1" max="20">
+                  </div>
+                  
+                  <div class="field">
+                    <label>Technique</label>
+                    <input type="number" name="Technique" min="1" max="20">
+                  </div>
+
+                </div>
+        </div>        
+    </div>
+
+
+    <div class="column">
+      <div class="ui form">
+            <h4>Mental attributes</h4>
+
+            <div class="fields">
+                  
+              <div class="field">
+                <label>Aggression</label>
+                <input type="number" name="Aggression" min="1" max="20">
+              </div>
+
+              <div class="field">
+                <label>Anticipation</label>
+                <input type="number" name="Anticipation" min="1" max="20">
+              </div>
+
+              <div class="field">
+                <label>Bravery</label>
+                <input type="number" name="Bravery" min="1" max="20">
+              </div>
+
+              <div class="field">
+                <label>Composure</label>
+                <input type="number" name="Composure" min="1" max="20">
+              </div>
+              
+              <div class="field">
+                <label>Concentration</label>
+                <input type="number" name="Concentration" min="1" max="20">
+              </div>
+
+              <div class="field">
+                <label>Decisions</label>
+                <input type="number" name="Decisions" min="1" max="20">
+              </div>
+              
+              <div class="field">
+                <label>Determination</label>
+                <input type="number" name="Determination" min="1" max="20">
+              </div>
+              
+              <div class="field">
+                <label>Flair</label>
+                <input type="number" name="Flair" min="1" max="20">
+              </div>
+              
+              <div class="field">
+                <label>Influence</label>
+                <input type="number" name="Influence" min="1" max="20">
+              </div>
+              
+              <div class="field">
+                <label>OffTheBall</label>
+                <input type="number" name="OffTheBall" min="1" max="20">
+              </div>
+              
+              <div class="field">
+                <label>Positioning</label>
+                <input type="number" name="Positioning" min="1" max="20">
+              </div>
+              
+              <div class="field">
+                <label>Teamwork</label>
+                <input type="number" name="Teamwork" min="1" max="20">
+              </div>
+              
+              <div class="field">
+                <label>Vision</label>
+                <input type="number" name="Vision" min="1" max="20">
+              </div>
+              
+              <div class="field">
+                <label>WorkRate</label>
+                <input type="number" name="WorkRate" min="1" max="20"> 
+              </div>
+
+            </div>
+          
+      </div>        
+  </div>
+
+
+  <div class="column">
+    <div class="ui form">
+          <h4>Physical attributes</h4>
+            <div class="fields">
+
+              <div class="field">
+                <label>Acceleration</label>
+                <input type="number" name="Acceleration" min="1" max="20">
+              </div>
+
+              <div class="field">
+                <label>Agility</label>
+                <input type="number" name="Agility" min="1" max="20">
+              </div>
+
+              <div class="field">
+                <label>Balance</label>
+                <input type="number" name="Balance" min="1" max="20">
+              </div>
+
+              <div class="field">
+                <label>Jumping</label>
+                <input type="number" name="Jumping" min="1" max="20">
+              </div>
+
+              <div class="field">
+                <label>NaturalFitness</label>
+                <input type="number" name="NaturalFitness" min="1" max="20">
+              </div>
+
+              <div class="field">
+                <label>Pace</label>
+                <input type="number" name="Pace" min="1" max="20">
+              </div>
+
+              <div class="field">
+                <label>Stamina</label>
+                <input type="number" name="Stamina" min="1" max="20">
+              </div>
+
+              <div class="field">
+                <label>Strength</label>
+                <input type="number" name="Strength" min="1" max="20">
+              </div>
+            </div>
+    </div>        
+</div>
+
+
+<div class="column">
+  <h3>Age <span>(only younger players will be displayed)</span></h3>
+  <div class="ui form">
+    <div class="fields">
+      
+      <div class="field">
+        <input type="number" name="Age" min="14" max="45">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="column">
+  <h2>Youth development</h2>
+  <div class="ui form">
+    <div class="fields">
+      
+      <div class="field">
+        <label>Determination</label>
+        <input type="number" name="Determination" min="1" max="20">
+      </div>
+
+      <div class="field">
+        <label>Ambition</label>
+        <input type="number" name="Ambition" min="1" max="20">
+      </div>
+
+      <div class="field">
+        <label>Professionalism</label>
+        <input type="number" name="Professionalism" min="1" max="20">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="column">
+  <h2>Abilities</h2>
+  <div class="ui form">
+    <div class="fields">
+      
+      <div class="field">
+        <label>PassingAbility</label>
+        <input type="number" name="PassingAbility" min="1" max="20">
+      </div>
+      
+      <div class="field">
+        <label>CrossingAbility</label>
+        <input type="number" name="CrossingAbility" min="1" max="20">
+      </div>
+
+      <div class="field">
+        <label>DribblingAbility</label>
+        <input type="number" name="DribblingAbility" min="1" max="20">
+      </div>
+
+      <div class="field">
+        <label>ShootingAbility</label>
+        <input type="number" name="ShootingAbility" min="1" max="20">
+      </div>
+
+      <div class="field">
+        <label>HeadingAbility</label>
+        <input type="number" name="HeadingAbility" min="1" max="20">
+      </div>
+
+      <div class="field">
+        <label>HoldUpPlay</label>
+        <input type="number" name="HoldUpPlay" min="1" max="20">
+      </div>
+
+      <div class="field">
+        <label>MarkingAbility</label>
+        <input type="number" name="MarkingAbility" min="1" max="20">
+      </div>
+
+      <div class="field">
+        <label>ClosingDownAbility</label>
+        <input type="number" name="ClosingDownAbility" min="1" max="20">
+      </div>
+
+      <div class="field">
+        <label>TacklingAbility</label>
+        <input type="number" name="TacklingAbility" min="1" max="20">
+      </div>
+
+      <div class="field">
+        <label>InterceptingAbility</label>
+        <input type="number" name="InterceptingAbility" min="1" max="20">
+      </div>
+
+      <div class="field">
+        <label>ClearingAbility</label>
+        <input type="number" name="ClearingAbility" min="1" max="20">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="column">
+  <h2>Positions</h2>
+  <div class="ui form">
+    <div class="fields">
+
+      <div class="field">
+        <label>GK</label>
+        <input type="number" name="GK">
+      </div>
+
+      <div class="field">
+        <label>SW</label>
+        <input type="number" name="SW">
+      </div>
+
+      <div class="field">
+        <label>DL</label>
+        <input type="number" name="DC">
+      </div>
+
+      <div class="field">
+        <label>DC</label>
+        <input type="number" name="DC">
+      </div>
+
+      <div class="field">
+        <label>DR</label>
+        <input type="number" name="DR">
+      </div>
+
+      <div class="field">
+        <label>DM</label>
+        <input type="number" name="DM">
+      </div>
+
+      <div class="field">
+        <label>ML</label>
+        <input type="number" name="ML">
+      </div>
+
+      <div class="field">
+        <label>MC</label>
+        <input type="number" name="MC">
+      </div>
+
+      <div class="field">
+        <label>MR</label>
+        <input type="number" name="MR">
+      </div>
+      
+
+      <div class="field">
+        <label>AML</label>
+        <input type="number" name="AML">
+      </div>
+
+      <div class="field">
+        <label>AMC</label>
+        <input type="number" name="AMC">
+      </div>
+
+      <div class="field">
+        <label>AMR</label>
+        <input type="number" name="AMR">
+      </div>
+
+      
+      <div class="field">
+        <label>ST</label>
+        <input type="number" name="ST">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="column">
+  <h2>Club</h2>
+  <div class="ui form">
+    <div class="fields">
+      <div class="field">
+        <input type="text" name="Club">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="column">
+  <h2>EndOfContract</h2>
+  <div class="ui form">
+    <div class="fields">
+      <div class="field">
+        <input type="number" name="EndOfContract" min="19" max="99">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<input type="submit" name="Submit">
+</div>
+</form>
+{%endblock%}

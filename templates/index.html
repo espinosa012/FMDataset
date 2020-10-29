@@ -1,0 +1,64 @@
+{% extends "base_template.html" %}
+
+
+{% block title %}FMDataset - Home{% endblock %}
+{%block navbar%}
+{{super()}}
+{% endblock %}
+
+{%block content%}
+
+<div class="row">
+  <div class="column">
+      <div class="container" style="padding-left: 10px">
+      
+          <table class="ui very basic collapsing celled table">
+            <thead>
+              <tr><th>Player</th>
+              <th>Age</th>
+              <th>EndOfContract</th>
+              <th>WeeklyWage</th>
+            </tr></thead>
+            <tbody>
+              {%for player in players%}
+              <tr>
+                <td>
+                    
+                  <h4 class="ui image header">
+                    <img src="faces/noface.jpg" class="ui mini rounded image">
+                    <div class="content">
+                      <a href="{{url_for('my_player', uid=player.UID)}}">{{player.Name}}</a>
+                      <div class="sub header">{{player.Positions}}
+                    </div>
+                  </div>
+                </h4></td>
+                <td>
+                  {{player.Age}}
+                </td>
+                <td>
+                  {{player.EndOfContract}}
+                </td>
+                <td>
+                  {{player.WeeklyWage}}
+                </td>
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+          
+          
+      </div>
+  </div>
+
+  <!-- más columnas para la misma fila de la tabla -->
+
+
+
+
+
+</div>
+
+
+
+{% endblock %}
+

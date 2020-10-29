@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<!--  Block head  -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
+    />
+    <meta name="keywords" content="Semantic-UI, Theme, Design, Template" />
+    <meta name="author" content="PPType" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      type="text/css"
+    />
+    <style type="text/css">
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: grayscale;
+      }
+
+      .ui.center.aligned.container {
+        margin-top: 4em;
+      }
+
+      p.lead {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 1.3em;
+        color: #333333;
+        line-height: 1.4;
+        font-weight: 300;
+      }
+
+      .ui.huge.header {
+        font-size: 36px;
+      }
+
+      .ui.inverted.menu {
+        border-radius: 0;
+        flex-wrap: wrap;
+        border: none;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .ui.mobile.only.grid .ui.menu .ui.vertical.menu {
+        display: none;
+      }
+
+      .ui.inverted.menu .item {
+        color: rgb(157, 157, 157);
+        font-size: 16px;
+      }
+
+      .ui.inverted.menu .active.item {
+        background-color: #080808;
+      }
+    </style>
+    <title>
+      {% block title %}
+      FMDataset
+      {%endblock%}
+    </title>
+  </head>
+
+  <body id="root">
+
+    <!-- base navbar        -->
+
+    <div class="ui tablet computer only padded grid">
+      <div class="ui borderless fluid huge inverted menu">
+          <div class="ui container">
+              <a class="header item" href="{{url_for('home')}}">FMDataset</a>
+              <a class="active item" href="{{url_for('home')}}">Home</a>
+              <a class="item" href="{{url_for('search_players_page')}}">Search players</a>
+              <a class="item" href="{{url_for('listed_players')}}">Listed players</a>
+          </div>
+      </div>
+    </div>
+    
+    
+    <!-- grid    -->
+    <div class="ui four column grid">
+      {%block content%}
+      {%endblock%}
+
+    </div>
+
+
+
+
+  </body>
+    
+    
+    
+
