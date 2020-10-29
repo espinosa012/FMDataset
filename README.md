@@ -2,8 +2,7 @@
 
 FMDataset is a application developed with python and Flask. It acts like a scouting tool for visualization of footballers' information in 
 the format of the video game Football Manager®. Based on a csv file with the players' information, the tool displays a web application that allows 
-to visualize such information in a friendly way. It uses [seaborn](https://seaborn.pydata.org/examples/index.html) and [plotly]
-(https://plotly.com/)  
+to visualize such information in a friendly way. It uses [seaborn](https://seaborn.pydata.org/examples/index.html) and [plotly](https://plotly.com/)  
 
 Based on the native attributes of the game, it defines a series of new attributes that allow the player to be evaluated more reliably.
 These custom parameters are defined in pipeline.py file, so you can view them and define some new ones.
