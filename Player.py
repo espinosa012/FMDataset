@@ -4,11 +4,12 @@ Puede ser útil a la hora de renderizar la página de jugador o de plantilla, no
 tarea que requiera obtener muchos jugadores, en cuyo caso es preferible emplear los resultados del dataframe (lista de dicts)
 '''
 
-class MyPlayer():
+class Player():
     #   Players from my squad
 
-    reg = None # reg from dataframe
-    #   Player basic information
+    reg = None # reg from dataframe (csv row)
+    
+    # Player basic information
     basic_info = {
         'UID':'',
         'Name':'',
@@ -30,19 +31,19 @@ class MyPlayer():
     position_group = ''     #   General position group (GK, DF, MED, ATT)
 
     #   Attributes groups (dicts attr:value)
-    technical   = {}
-    mental      = {}
-    physical    = {}
-    goalkeeper  = {}
+    technical = {}
+    mental = {}
+    physical = {}
+    goalkeeper = {}
 
-    background  = {}
-    primary     = {}
+    background = {}
+    primary = {}
 
-    hidden      = {}
-    person      = {}  
+    hidden = {}
+    person = {}  
 
-    roles_rating    = {}
-    abilities_rating= {}
+    roles_rating = {}
+    abilities_rating = {}
 
     #   Ratings (attrs groups average)
     ratings = {

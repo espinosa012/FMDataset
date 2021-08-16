@@ -2,7 +2,7 @@
 import pandas as pd
 
 from charts import get_polar_chart, get_heatmap, get_horizontal_bars, get_vertical_bars
-from MyPlayer import MyPlayer
+from Player import Player
 import pipeline
 
 
@@ -59,8 +59,9 @@ def get_chart(type_, player, attrs):
     return charts[type_](player, attributes)
 
 
-def get_player_by_uid(uid):
-    return MyPlayer(pipeline.df.query("UID == {}".format(uid)).iloc[0]) 
+def get_player_by_uid(uid): # ¿estaría mejor en Player.py?
+    # construct player from dataframe row register
+    return Player(pipeline.df.query("UID == {}".format(uid)).iloc[0]) 
 
 
 def get_player_template_charts(player):#, header_charts={}, overview_charts={}):

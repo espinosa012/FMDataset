@@ -1,0 +1,7 @@
+flask
+pandas 
+bokeh
+pychart.js
+plotly
+matplotlib
+mpld3

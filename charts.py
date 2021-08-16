@@ -1,4 +1,4 @@
-from MyPlayer import MyPlayer
+from Player import Player
 from pipeline import df, home_df
 
 from bokeh.plotting import figure

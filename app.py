@@ -4,7 +4,7 @@ import json
 import pandas as pd
 from flask import Flask, render_template, redirect, url_for, request
 
-from MyPlayer import MyPlayer
+from Player import Player
 from config import *
 import pipeline
 
@@ -22,17 +22,17 @@ app.config["DEBUG"] = True
 @app.route("/home")
 @app.route("/index")
 def home():
-    players     =   []
+    players = []
     for ii in range(len(pipeline.home_df)):
         players.append(pipeline.home_df.iloc[ii])
     return render_template("index.html", players=players)
 
 
-@app.route("/my_player")
+@app.route("/player")
 def my_player():
     uid = int(request.args.get('uid'))
 
-    template = 'my_player.html'
+    template = 'player.html'
     player = get_player_by_uid(uid) #player object
     charts = get_player_template_charts(player)
     return render_template(
