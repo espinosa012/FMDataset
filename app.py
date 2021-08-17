@@ -29,7 +29,7 @@ def home():
 
 
 @app.route("/player")
-def my_player():
+def player():
     uid = int(request.args.get('uid'))
 
     template = 'player.html'

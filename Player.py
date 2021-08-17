@@ -63,6 +63,8 @@ class Player():
 
     def __init__(self, reg):
         #   reg: register from players dataframe
+        # print(dict(reg))
+        
         self.reg = reg
         #   Filling basic_info
         for field in list(self.basic_info.keys())[:-1]:
