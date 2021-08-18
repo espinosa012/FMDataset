@@ -17,6 +17,20 @@ app = Flask(
 
 app.config["DEBUG"] = True
 
+config_file = json.load(open('config.json', 'r'))
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ROUTES
 @app.route("/")
 @app.route("/home")
@@ -34,12 +48,25 @@ def player():
 
     template = 'player.html'
     player = get_player_by_uid(uid) #player object
-    charts = get_player_template_charts(player)
+    # player = Player(uid)
+    charts = get_default_charts(player)
+    # charts = player.charts
+
     return render_template(
         template, 
         player=player, 
         charts=charts,
     )
+
+'''
+@app.route("/player")
+def player():
+    player = get_player_by_uid(int(request.args.get('uid')))
+    return str(player.reg)
+'''
+
+
+
 
 
 @app.route("/similar-players")

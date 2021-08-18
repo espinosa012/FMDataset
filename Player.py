@@ -4,7 +4,7 @@ Puede ser útil a la hora de renderizar la página de jugador o de plantilla, no
 tarea que requiera obtener muchos jugadores, en cuyo caso es preferible emplear los resultados del dataframe (lista de dicts)
 '''
 
-class Player():
+class Player__():
     #   Players from my squad
 
     reg = None # reg from dataframe (csv row)

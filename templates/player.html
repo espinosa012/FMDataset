@@ -21,7 +21,7 @@
                       </div>
                       <div class="description">
                         <h5>{{player.positions}}</h5> <br>
-                        <img src="positions/{{player.positions}}.png" height="90" alt="{{player.positions}}">
+                        <img src="positions/{{player.reg.Positions}}.png" height="90" alt="{{player.positions}}">
                         
                       </div>
                     </div>
@@ -47,19 +47,19 @@
         <div class="ui cards">
             <div class="card">
                 <div class="content">
-                    {% if 'GK' in player.positions %}
+                    {% if 'GK' in player.reg.Positions %}
                     <div class="header">
                         Goalkeeper attributes
                     </div>
                     <div class="meta">
-                        {{player.ratings.GoalkeeperRating}}
+                        {{player.get_goalkeeper_rating()}}
                     </div>
                     {%else%}
                     <div class="header">
                         Technical attributes
                     </div>
                     <div class="meta">
-                        {{player.ratings.TechnicalRating}}
+                        {{player.get_technical_rating()}}
                     </div>
                     {%endif%}
                     <div class="description">
@@ -79,7 +79,7 @@
                         </div>
 
                         <div class="meta">
-                            {{player.ratings.MentalRating}}
+                            {{player.get_mental_rating()}}
                         </div>
 
                         <div class="description">
@@ -99,7 +99,8 @@
                         </div>
 
                         <div class="meta">
-                            {{player.ratings.PhysicalRating}}
+                            {{player.get_physical_rating()}}
+
                         </div>
 
                         <div class="description">

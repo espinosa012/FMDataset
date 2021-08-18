@@ -1,13 +1,26 @@
 # fmdataset.py
 import pandas as pd
 
-from charts import get_polar_chart, get_heatmap, get_horizontal_bars, get_vertical_bars
+from charts import get_line_polar_chart, get_heatmap, get_horizontal_bars, get_vertical_bars
 from Player import Player
 import pipeline
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 #   SETTINGS
-def get_default_charts(player):
+def get_default_charts(player): # añadir a clase jugador
     # Player page default header charts
     header_charts = {
         'technical':get_horizontal_bars(player=player, attrs=pipeline.technical_attrs),
@@ -37,7 +50,6 @@ def get_default_charts(player):
     return {
         'header_charts':header_charts,
         'overview_charts':overview_charts,
-        
     }
 
 def get_chart(type_, player, attrs):

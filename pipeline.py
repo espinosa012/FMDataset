@@ -1,34 +1,33 @@
 import pandas as pd 
 from numpy import int64
 import json
+
 # Get dataframe from csv file
-csv_path = 'csv/players.csv'
-df = pd.read_csv(csv_path, sep=';')
-home_df = df.query('Club ==  "FC Midtjylland"')
 
 config_json = json.load(open("config.json", "r"))
 
-#	Pipeline para agregar las columnas correspondientes a abilities, roles, attrs_averages.
+df = pd.read_csv(config_json['csv_path'], sep=';')
+home_df = df.query('Club ==  "FC Midtjylland"')
 
-#	All existing positions
-# positions 	= 	['GK','SW','DC','DR','DL','DM','MC','MR','ML','AMC','AMR','AML','ST']
+# Pipeline para agregar las columnas correspondientes a abilities, roles, attrs_averages.
+# All existing positions
 positions = config_json['positions']
 
-#	Game attributes
+# Game attributes
 technical_attrs = config_json['technical_attrs']
 mental_attrs = config_json['mental_attrs']
 physical_attrs = config_json['physical_attrs']
 goalkeeper_attrs = config_json['goalkeeper_attrs']
 
-#	Hidden attributes
+# Hidden attributes
 hidden_attrs = config_json['hidden_attrs']
 person_attrs = config_json['person_attrs']
 
-#	Background/primary
+# Background/primary
 background_attrs = config_json['background_attrs']
 primary_attrs = config_json['primary_attrs']
 
-#	Custom ratings
+#Custom ratings
 custom_ratings = config_json['custom_ratings']
 
 # https://www.passion4fm.com/football-manager-player-attributes/

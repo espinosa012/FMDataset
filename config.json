@@ -1,6 +1,7 @@
 {
 	"csv_path":"csv/players.csv",
-	"home_dataframe_query":"",
+	"home_dataframe_query":"Club ==  'FC Midtjylland'",
+	
 	"positions":["GK","SW","DC","DR","DL","DM","MC","MR","ML","AMC","AMR","AML","ST"],
 	
 	"technical_attrs": ["Corners","Crossing","Dribbling","Finishing","FirstTouch","FreeKicks","Heading","LongShots","LongThrows","Passing","PenaltyTaking","Tackling","Technique"],
