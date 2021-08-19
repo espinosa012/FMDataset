@@ -41,6 +41,7 @@ class FMDChart():
         '''
         print(f'attrs: {attrs}. chart_type: {chart_type}')
 
+        # available chart types and its methods
         available_chart_types = {
             'vertical_bars':self.get_vertical_bars,
             'horizontal_bars':self.get_horizontal_bars,
@@ -64,7 +65,6 @@ class FMDChart():
 
     # SINGLE PLAYERS CHARTS
     def get_vertical_bars(self, filename='vertical_bars'):
-
         '''
         Get vertical bars chart from PLOTLY.
         player: Player object whose attributes we want to plot using a vertical bars chart
@@ -98,7 +98,7 @@ class FMDChart():
             plot_width=250, 
             plot_height=300,
 
-        )
+        )  
         p.hbar(y=y, right=right, height=0.95, line_color='white', color ="green")    
         html = file_html(p, CDN, filename)
         return html

@@ -1,6 +1,7 @@
 {
 	"csv_path":"csv/players.csv",
 	"home_dataframe_query":"Club ==  'FC Midtjylland'",
+	"preselection_file_path":"preselection.txt",
 	
 	"positions":["GK","SW","DC","DR","DL","DM","MC","MR","ML","AMC","AMR","AML","ST"],
 	
@@ -31,13 +32,13 @@
 		"VisionSetPiece":["Vision", "Flair", "Passing"],
 		"Attacking":["Finishing", "OffTheBall","Composure"],	
 		"TechniqueSetPiece":["Technique", "FirstTouch", "Dribbling"],
-		"Aerial":["Heading", "JumpingReach"],
+		"Aerial":["Heading", "Jumping"],
 		"Mental":["Determination", "Decisions", "Anticipation", "Teamwork", "Bravery", "Concentration"]
 	},
 
 	"goalkeeper_set_pieces":{
 		"ShotStopping":["Reflexes", "OneOnOnes"],
-		"AerialGK":["Reflexes", "JumpingReach"],
+		"AerialGK":["Reflexes", "Jumping"],
 		"Distribution":["Throwing", "Kicking"],
 		"PhysicalGK":["Balance", "Agility", "Strength"]
 	},

@@ -61,7 +61,7 @@ abilities_dict = config_json['abilities_attrs']
 ######################################################################################################
 def get_monthly_wage(row):
 	# Estimates monthly wage from weekly wage (avilable in csv)
-	return round((float(row['Weeklywage'])/7)*30, 2) 
+	return round((float(row['WeeklyWage'])/7)*30, 2) 
 
 
 def get_clubUID(row):
@@ -89,9 +89,9 @@ def pipeline(input_csv, output_csv):
 		{'rating_name':'MentalRating', 'attrs':config_json['mental_attrs']},
 		{'rating_name':'PhysicalRating', 'attrs':config_json['physical_attrs']},
 		{'rating_name':'GoalkeeperRating', 'attrs':config_json['goalkeeper_attrs']},
-
 	]
 	df = pd.read_csv(input_csv, sep=';')
+
 	for ab in abilities_dict.keys():
 		df[ab] = df.apply(get_rating, args=(abilities_dict[ab], ), axis=1)		
 	df.apply(get_monthly_wage, axis=1)

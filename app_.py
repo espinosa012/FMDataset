@@ -39,18 +39,14 @@ def home():
 @app.route("/player")
 def player():
     uid = int(request.args.get('uid'))
-
-    # template = 'player.html'
-    # player = get_player_by_uid(uid) #player object
     player = Player(uid)
-    charts = player.get_player_page_charts()
-    
+
     return render_template(
         'player.html', 
         player=player, 
-        charts=charts,
+        charts=player.get_player_page_charts(),
     )
-    return str(player.reg)
+
 
 
 
@@ -62,11 +58,16 @@ def listed_players():
 
 @app.route("/add-player-to-preselection")
 def add_player_to_preselection():
-    preselection_file = open('preselection.txt', 'a')
-    preselection_file.write('{}\n'.format(request.args.get('uid')))
+    uid = int(request.args.get('uid'))
+    player = Player(uid)
+
+    preselection_file = open(config.config_json['preselection_file_path'], 'a')
+    preselection_file.write('{}\n'.format(uid))
     preselection_file.close()
-    return '{} added to list, <a href="javascript:history.back()"> back to player page</a>'.format(request.args.get('uid'))
      
+    return '{} added to list, <a href="javascript:history.back()"> back to player page</a>'.format(request.args.get('uid'))
+
+
 @app.route("/remove-player-from-preselection")
 def remove_player_from_preselection():
 	# remove uid from file
@@ -77,6 +78,11 @@ def remove_player_from_preselection():
 @app.route("/search")
 def search_players_page():
     return render_template('search_players.html')
+
+@app.route("/search-result")
+def search_result():
+    return render_template('search_players.html')
+
 
 @app.route("/similar-players")
 def similar_players():

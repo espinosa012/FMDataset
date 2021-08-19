@@ -34,37 +34,67 @@ class Player():
 			'WeeklyWage':'',
 		}
 
+	def fulfill_attrs_dict(self, attr_list):
+		# generic method to be called from others
+		dict_to_return = {}
+		for at in attr_list:
+			dict_to_return[at] = self.reg[at]
+		return dict_to_return
+
 	
 	# GAME ATTRIBUTES
 	def get_technical_attrs(self):
 		# leer desde config
-		technical_attrs = {}
+		return self.fulfill_attrs_dict(config.config_json['technical_attrs'])
 		
 	def get_mental_attrs(self):
 		# leer desde config
-		mental_attrs = {}
+		return self.fulfill_attrs_dict(config.config_json['mental_attrs'])
 
 	def get_physical_attrs(self):
 		# leer desde config
-		physical_attrs = {}
+		return self.fulfill_attrs_dict(config.config_json['physical_attrs'])
 
 	def get_goalkeeper_attrs(self):
 		# leer desde config
-		goalkeeper_attrs = {}
+		return self.fulfill_attrs_dict(config.config_json['goalkeeper_attrs'])
 
 	def get_background_attrs(self):
-		background_attrs = {}
+		# leer desde config
+		return self.fulfill_attrs_dict(config.config_json['background_attrs'])
 
 	def get_primary_attrs(self):
-		primary_attrs = {}
+		# leer desde config
+		return self.fulfill_attrs_dict(config.config_json['primary_attrs'])
 		
 	def get_hidden_attrs(self):
-		hidden_attrs = {}
-
+		# leer desde config
+		return self.fulfill_attrs_dict(config.config_json['hidden_attrs'])
+	
 	def get_person_attrs(self):
-		person_attrs = {}
+		# leer desde config
+		return self.fulfill_attrs_dict(config.config_json['person_attrs'])
 
 	
+
+
+
+	# SET PIECES
+	'''
+	Set pieces are sets of attributes with certain relationship between them
+	'''
+	def get_set_pieces(self):
+		set_pieces_dict = {}
+		for sp in config.config_json['set_pieces'].keys():
+			set_pieces_dict[sp] = self.fulfill_attrs_dict(config.config_json['set_pieces'][sp])
+		return set_pieces_dict
+
+	def get_goalkeeper_set_pieces(self):
+		set_pieces_dict = {}
+		for sp in config.config_json['goalkeeper_set_pieces'].keys():
+			set_pieces_dict[sp] = self.fulfill_attrs_dict(config.config_json['goalkeeper_set_pieces'][sp])
+		return set_pieces_dict
+
 	
 	# RATINGS
 	def get_technical_rating(self):
@@ -92,13 +122,25 @@ class Player():
 
 
 	# PRESELECTION
-
 	def save_player_to_list(self):
 		# to add player to player's preselection
-		pass
+		preselection_file = open(config.config_json['preselection_file_path'], 'a')
+		preselection_file.write('{}\n'.format(self.reg.UID))
+		preselection_file.close()
+
 
 	def remove_player_from_list(self):
-		pass
+		# preselection_file = open(config.config_json['preselection_file_path'], 'r+')
+		# lines = [l.strip() for l in preselection_file.readlines()] 
+		preselection_file = open(config.config_json['preselection_file_path'], 'r+')
+		print(preselection_file.read().replace(str(self.reg.UID), ''))
+
+		for l in preselection_file.readlines():
+			if l.strip():
+				preselection_file.write(l)
+		preselection_file.close()
+				
+		
 
 
 	# MORE

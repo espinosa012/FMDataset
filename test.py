@@ -43,4 +43,6 @@ players = [Player(uid) for uid in uids]
 attrs = ['Determination', 'Tackling', 'Pace', 'Passing', 'Acceleration']
 
 # c = FMDChart('heatmap', players, attrs, 'class')
-print(players[0].get_basic_info())
+
+# print(players[0].save_player_to_list())
+players[0].remove_player_from_list()
