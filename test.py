@@ -5,7 +5,7 @@ from src.Player import Player
 # import config
 import numpy as np
 import pandas as pd
-from pipeline import *
+# from pipeline import *
 from bokeh.plotting import figure, output_file, show
 # from charts import *
 
@@ -42,7 +42,5 @@ uids = [1700454, 22041890, 27025428]
 players = [Player(uid) for uid in uids]
 attrs = ['Determination', 'Tackling', 'Pace', 'Passing', 'Acceleration']
 
-# c = FMDChart('heatmap', players, attrs, 'class')
-
-# print(players[0].save_player_to_list())
-players[0].remove_player_from_list()
+# c = FMDChart('heatmap', players, attrs, 'class')players[0]
+print(players[0].get_role_attrs(r))

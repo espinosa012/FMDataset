@@ -14,19 +14,11 @@
 	"background_attrs": ["WorkRate", "Concentration", "Teamwork", "Determination"],
 	"primary_attrs": ["Decisions", "Technique", "Anticipation", "Flair"],
 	
-	"custom_ratings":{
-		"ICRCholo": ["Teamwork", "Bravery", "Acceleration", "NaturalFitness"],
-		"passion4fm_rate1":	["Anticipation", "Decisions", "Positioning", "WorkRate", "Teamwork"],
-		"youth_development": ["Determination", "Ambition", "Professionalism"],
-		"striker": ["FirstTouch", "Passing", "Dribbling", "Finishing", "OffTheBall", "Anticipation", "Bravery", "Acceleration", "Balance", "Strength", "Pace", "Decisions"],
-		"header_striker": ["Heading", "Bravery", "Jumping", "Strength"]
-	},
-
-	"set_pieces":{
+	"default_set_pieces":{
 		"DirectFreeKicks":["FreeKicks", "LongShots", "Finishing"],
 		"IndirectFreeKicks":["FreeKicks", "Crossing", "Passing", "Vision"],
 		"Penalty":["PenaltyTaking", "Composure", "Technique", "Finishing", "Concentration"],
-		"Defending":["Tackling", "Tackling", "Marking", "Positioning"],
+		"Defending":["Tackling", "Marking", "Positioning"],
 		"Physical":["Strength", "Stamina", "Balance", "Agility"],
 		"Speed":["Acceleration", "Pace"],
 		"VisionSetPiece":["Vision", "Flair", "Passing"],
@@ -42,6 +34,15 @@
 		"Distribution":["Throwing", "Kicking"],
 		"PhysicalGK":["Balance", "Agility", "Strength"]
 	},
+
+	"custom_set_pieces":{
+		"ICRCholo": ["Teamwork", "Bravery", "Acceleration", "NaturalFitness"],
+		"passion4fm_rate1":	["Anticipation", "Decisions", "Positioning", "WorkRate", "Teamwork"],
+		"youth_development": ["Determination", "Ambition", "Professionalism"],
+		"striker": ["FirstTouch", "Passing", "Dribbling", "Finishing", "OffTheBall", "Anticipation", "Bravery", "Acceleration", "Balance", "Strength", "Pace", "Decisions"],
+		"header_striker": ["Heading", "Bravery", "Jumping", "Strength"]
+	},
+
 
 	"roles_attrs":{
 		"Targetman": ["FirstTouch","Heading","Aggression","Bravery","Determination","Teamwork","WorkRate","Jumping","Strength"],

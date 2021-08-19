@@ -30,8 +30,8 @@ class Player():
 
 	def get_contract_info(self):
 		return {
-			'EndOfContract':'',
-			'WeeklyWage':'',
+			'EndOfContract':self.reg.EndOfContract,
+			'WeeklyWage':self.reg.WeeklyWage,
 		}
 
 	def fulfill_attrs_dict(self, attr_list):
@@ -83,10 +83,10 @@ class Player():
 	'''
 	Set pieces are sets of attributes with certain relationship between them
 	'''
-	def get_set_pieces(self):
+	def get_default_set_pieces(self):
 		set_pieces_dict = {}
-		for sp in config.config_json['set_pieces'].keys():
-			set_pieces_dict[sp] = self.fulfill_attrs_dict(config.config_json['set_pieces'][sp])
+		for sp in config.config_json['default_set_pieces'].keys():
+			set_pieces_dict[sp] = self.fulfill_attrs_dict(config.config_json['default_set_pieces'][sp])
 		return set_pieces_dict
 
 	def get_goalkeeper_set_pieces(self):
@@ -95,8 +95,17 @@ class Player():
 			set_pieces_dict[sp] = self.fulfill_attrs_dict(config.config_json['goalkeeper_set_pieces'][sp])
 		return set_pieces_dict
 
-	
+	def get_custom_set_pieces(self):
+		set_pieces_dict = {}
+		for sp in config.config_json['custom_set_pieces'].keys():
+			set_pieces_dict[sp] = self.fulfill_attrs_dict(config.config_json['custom_set_pieces'][sp])
+		return set_pieces_dict
+
+
 	# RATINGS
+	def get_custom_rating(self, rating):
+		pass
+
 	def get_technical_rating(self):
 		pass
 
@@ -115,11 +124,28 @@ class Player():
 	def get_primary_rating(self):
 		pass
 
-	def get_custom_ratings(self):
-		# returns an array (or dict) with self defined rating (in case there are any)
-		pass
-	
+	# ABILITIES
+	def get_abilities(self):
+		ability_dict = {}
+		for ab in config.config_json['abilities_attrs'].keys():
+			ability_dict[ab] = self.fulfill_attrs_dict(config.config_json['abilities_attrs'][ab])
+		return ability_dict
 
+
+	# ROLES
+	def get_roles(self):
+		# returns a list with all available roles (defined in config.json), but not any attribute.
+		return list(config.config_json['roles_attrs'].keys())
+
+	def get_role_attrs(self, role):
+		# return attrs dict for certain role, passed as argument
+		role_dict = {}
+		try:
+			for at in config.config_json['roles_attrs'][role]:
+				role_dict[at] = self.reg[at]
+			return role_dict
+		except Exception as e:
+			raise Exception(f'Error getting {role} attrs: {e}')
 
 	# PRESELECTION
 	def save_player_to_list(self):
