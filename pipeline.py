@@ -95,4 +95,5 @@ def pipeline(input_csv, output_csv):
 	for ab in abilities_dict.keys():
 		df[ab] = df.apply(get_rating, args=(abilities_dict[ab], ), axis=1)		
 	df.apply(get_monthly_wage, axis=1)
+	df.apply(get_clubUID, axis=1)
 	df.to_csv(output_csv, sep=';')

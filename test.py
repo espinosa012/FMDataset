@@ -38,9 +38,8 @@ def get_squad_df(mdf, df):
 
 
 uids = [1700454, 22041890, 27025428]
-# players = [Player(home_df.query("UID == {}".format(uid)).iloc[0]) for uid in uids]
 players = [Player(uid) for uid in uids]
 attrs = ['Determination', 'Tackling', 'Pace', 'Passing', 'Acceleration']
 
 # c = FMDChart('heatmap', players, attrs, 'class')players[0]
-print(players[0].get_role_attrs(r))
+print(players[0].get_available_abilities())

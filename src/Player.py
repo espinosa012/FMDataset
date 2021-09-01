@@ -125,6 +125,10 @@ class Player():
 		pass
 
 	# ABILITIES
+	def get_available_abilities(self):
+		# returns a list of available abilities, without any atttribute value
+		return list(config.config_json['abilities_attrs'].keys())
+
 	def get_abilities(self):
 		ability_dict = {}
 		for ab in config.config_json['abilities_attrs'].keys():
@@ -147,13 +151,14 @@ class Player():
 		except Exception as e:
 			raise Exception(f'Error getting {role} attrs: {e}')
 
+	
+
 	# PRESELECTION
 	def save_player_to_list(self):
 		# to add player to player's preselection
 		preselection_file = open(config.config_json['preselection_file_path'], 'a')
 		preselection_file.write('{}\n'.format(self.reg.UID))
 		preselection_file.close()
-
 
 	def remove_player_from_list(self):
 		# preselection_file = open(config.config_json['preselection_file_path'], 'r+')
@@ -189,9 +194,13 @@ class Player():
 			'mental':FMDChart('horizontal_bars', self, 'mental_attrs').chart,
 			'physical':FMDChart('horizontal_bars', self, 'physical_attrs').chart,
 		}
+
 		# if 'GK' in player.positions:
 		if 'GK' in self.reg.Positions:
-			header_charts['technical'] = FMDChart('horizontal_bars', self, 'goalkeeper_attrs')
+			# del(header_charts['technical'])
+			# header_charts['technical'] = FMDChart('horizontal_bars', self, 'goalkeeper_attrs')
+			header_charts['technical'] = FMDChart('horizontal_bars', self, 'goalkeeper_attrs').chart
+
 
 	    # Player page default overview charts
 		overview_charts = { # temporal, untested
@@ -208,7 +217,6 @@ class Player():
 	            'chart':FMDChart('vertical_bars', self, 'person_attrs').chart,	            
 	        },
 		}
-
 		return {
 	        'header_charts':header_charts,
 	        'overview_charts':overview_charts,
